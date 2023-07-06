@@ -31,6 +31,25 @@ class PrepCodeChallenge
         return false;
     }
 
+    static bool IsPerfectSequence(int[] array)
+    {
+        int sum = 0;
+        int product = 1;
+
+        foreach(int val in array)
+        {
+            if (val < 0)
+            {
+                return false;
+            }
+
+            sum += val;
+            product *= val;
+        }
+
+        return sum == product;
+    }
+
     static void Main()
     {
         //Problem 1
@@ -54,12 +73,14 @@ class PrepCodeChallenge
 
         // Problem 2
 
-        Console.WriteLine("enter a 4 digit year i.e. 1991");
-        int year = Convert.ToInt32(Console.ReadLine());
-        bool isLeapYear = IsLeapYear(year);
-        string yorN = isLeapYear ? "is" : "is not";
-        Console.WriteLine($"{year} {yorN} a leap year");
+        //Console.WriteLine("enter a 4 digit year i.e. 1991");
+        //int year = Convert.ToInt32(Console.ReadLine());
+        //bool isLeapYear = IsLeapYear(year);
+        //string yorN = isLeapYear ? "is" : "is not";
+        //Console.WriteLine($"{year} {yorN} a leap year");
 
+        int[] seq = { -2, 2, 0 };
+        Console.WriteLine(IsPerfectSequence(seq));
         Console.ReadLine();
     }
 
